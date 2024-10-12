@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Amazon.co.uk</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+
+      p {
+        font-family: Roboto, Arial;
+      }
+
+      .image {
+        margin-top: 20px;
+        cursor: pointer;
+        height: 200px;
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      .item {
+        width: 232px;
+        display: inline-block;
+        padding-top: 9px;
+        border-left: solid;
+        border-bottom: solid;
+        border-color: #e3e3e3;
+        border-width: 1px;
+        position: relative;
+        padding-left: 5px;
+      }
+
+      .left-edge {
+        border-left: none;
+      }
+
+      .bottom {
+        border-bottom: none;
+      }
+
+      .text {
+        padding-left: 10px;
+        display: inline-block;
+        width: 200px;
+      }
+
+      .name {
+        cursor: pointer;
+        margin: 0px;
+        margin-bottom: 10px;
+      }
+
+      .image-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        margin-bottom: 40px;
+        padding-left: 10px;
+        height: 240px;
+      }
+
+      .rating {
+        width: 100px;
+      }
+
+      .review-number {
+        display: inline-block;
+        margin: 2px;
+        vertical-align: top;
+        font-size: 15px;
+        color: #017cb6;
+      }
+
+      .price {
+        margin-top: 10px;
+        font-weight: 500;
+        margin-bottom: 7px;
+      }
+
+      .select {
+        border-color: rgb(215, 215, 215);
+        border-radius: 10px;
+        border-style: solid;
+        background-color: rgb(241, 241, 241);
+        height: 25px;
+        width: 50px;
+        padding-left: 7px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+        margin-bottom: 20px
+      }
+
+      .select:hover {
+        opacity: 0.8;
+      }
+
+      .items {
+        display: grid;
+        grid-template-columns: 233px 233px 233px 233px 233px 233px 233px;
+        grid-template-rows: 600px 600px 600px 600px;
+        place-items: middle;
+      }
+
+      .add-to-cart {
+        position:absolute; bottom: 0; left: 50%;
+        transform: translate(-50%);
+        margin-bottom: 15px;
+        width: 210px;
+      }
+
+      .add-to-cart-button {
+        width: 190px;
+        height: 35px;
+        border-radius: 50px;
+        border-style: solid;
+        border-color: rgb(255, 191, 0);
+        background-color: rgb(255, 204, 0);
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        box-shadow: 10px 10px 20px rgba(181, 181, 181, 0.5);
+      }
+
+      .add-to-cart-button:hover {
+        background-color: rgb(255, 191, 0);;
+      }
+
+      .button-selection {
+        border-style: solid;
+        border-color: lightgrey;
+        border-radius: 5px;
+        width: 25px;
+        height: 30px;
+        margin-right: 4px;
+        background-color: white;
+        text-align: center;
+        padding: 0;
+        border-width: 1px;
+        cursor: pointer;
+      }
+
+      .size-text {
+        margin-top: 0px;
+        margin-bottom: 10px;
+        font-weight: 500;
+      }
+
+      .colour-selection {
+        border-style: solid;
+        border-color: lightgrey;
+        border-radius: 5px;
+        width: 55px;
+        height: 30px;
+        margin-right: 4px;
+        background-color: white;
+        text-align: center;
+        padding: 0;
+        border-width: 1px;
+        cursor: pointer;
+      }
+
+      .colour-teal {
+        width: 40px;
+      }
+
+      .body {
+        margin: 0;
+      }
+
+      .header {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: rgb(19, 25, 33);
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 30px;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .main {
+        margin-top: 60px;
+      }
+
+      .logo {
+        width: 100px;
+      }
+
+      .centreHeader {
+        flex: 1;
+        max-width: 1000px;
+        display: flex;
+      }
+
+      .search {
+        flex: 1;
+        display: flex;
+        width: 0;
+        align-items: center;
+        height: 100%;
+      }
+
+      .searchButton {
+        height: 40px;
+        flex-shrink: 0;
+      }
+
+    </style>
+
+  </head>
+  <body>
+
+    <header class="header">
+
+      <section class="leftHeader">
+        <img src="Logo\Amazon-Logo-1024x426-1.png" class="logo">
+      </section>
+
+      <section class="centreHeader">
+        <input class="search">
+        <button class="searchButton"></button>
+      </section>
+
+
+    </header>
+
+    <div class="main">
+
+      <div class="items"> 
+
+
+        <div class="item left-edge">
+
+          
+
+          <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+          <div>
+            <div class="text"> 
+
+            <p class="name">
+              Black and Gray Athletic Cotton Socks - 6 Pairs
+            </p>
+            <img class="rating" src="amazon rating\rating-45.png">
+            <p class="review-number">87</p>
+            <p class="price">£8.99</p>
+            <select class="quantity select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+
+            
+
+            <div class="size">
+
+              <p class="size-text">Size</p>
+
+              <button class="s-js button-selection" onclick="selectSize('s-js')">S</button>
+              <button class="m-js button-selection" onclick="selectSize('m-js')">M</button>
+              <button class="l-js button-selection" onclick="selectSize('l-js')">L</button>
+            </div>
+
+            <div class="color">
+
+            </div>
+            
+            <div class="add-to-cart">
+              <button class="add-to-cart-button">Add To Cart</button>
+            </div>
+
+            </div>
+
+        </div>
+
+      </div>
+
+        <div class="item">
+
+            
+
+          <div class="image-row"><img src="amazon item pic\intermediate-composite-basketball.jpg" class="image"></div> 
+
+          <div>
+            <div class="text"> 
+
+            <p class="name">
+              Intermediate Sized Professional Basketball
+            </p>
+            <img class="rating" src="amazon rating\rating-4.png">
+            <p class="review-number">127</p>
+            <p class="price">£25.99</p>
+            <select class="quantity select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+
+            <div class="color">
+
+            </div>
+            
+            <div class="add-to-cart">
+              <button class="add-to-cart-button">Add To Cart</button>
+            </div>
+
+            </div>
+
+        </div>
+
+      </div>
+
+        <div class="item">
+
+              
+
+          <div class="image-row"><img src="amazon item pic/plain-hooded-fleece-sweatshirt-yellow.jpg" class="image image-hoodie-js"></div> 
+
+          <div>
+            <div class="text"> 
+
+            <p class="name">
+              Soft Cotton Teens and Kids Hoodie
+            </p>
+            <img class="rating" src="amazon rating\rating-5.png">
+            <p class="review-number">184</p>
+            <p class="price">£23.50</p>
+            <select class="quantity select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+
+            
+
+            <div class="size">
+
+              <p class="size-text">Colour</p>
+
+              <button class="y-js colour-selection" onclick="selectColour('y-js')">Yellow</button>
+              <button class="t-js colour-selection colour-teal" onclick="selectColour('t-js')">Teal</button>
+            </div>
+
+            <div class="color">
+
+            </div>
+            
+            <div class="add-to-cart">
+              <button class="add-to-cart-button">Add To Cart</button>
+            </div>
+
+            </div>
+
+        </div>
+
+      </div>
+
+        <div class="item">
+
+                
+
+          <div class="image-row"><img src="amazon item pic/knit-athletic-sneakers-gray.jpg" class="image"></div> 
+
+          <div>
+            <div class="text"> 
+
+            <p class="name">
+              Black and White Light Athletic Shoes - Adult
+            </p>
+            <img class="rating" src="amazon rating\rating-45.png">
+            <p class="review-number">94</p>
+            <p class="price">£30.00</p>
+            <select class="quantity select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+
+            
+
+            <div class="size">
+
+              <p class="size-text">Size</p>
+
+              <button class="six-js button-selection" onclick="selectShoeSize('6')">6</button>
+              <button class="seven-js button-selection" onclick="selectShoeSize('7')">7</button>
+              <button class="eight-js button-selection" onclick="selectShoeSize('8')">8</button>
+              <button class="nine-js button-selection" onclick="selectShoeSize('9')">9</button>
+              <button class="ten-js button-selection" onclick="selectShoeSize('10')">10</button>
+            </div>
+
+            <div class="color">
+
+            </div>
+            
+            <div class="add-to-cart">
+              <button class="add-to-cart-button">Add To Cart</button>
+            </div>
+
+            </div>
+
+        </div>
+
+      </div>
+
+        <div class="item">
+
+            
+
+        <div class="image-row"><img src="amazon item pic/6-piece-white-dinner-plate-set.jpg" class="image"></div> 
+
+        <div>
+          <div class="text"> 
+
+          <p class="name">
+            White Dinner Plate Set - Six Pieces
+          </p>
+          <img class="rating" src="amazon rating\rating-35.png">
+          <p class="review-number">58</p>
+          <p class="price">£13.99</p>
+          <select class="quantity select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select>
+
+          <div class="color">
+
+          </div>
+          
+          <div class="add-to-cart">
+            <button class="add-to-cart-button">Add To Cart</button>
+          </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+        <div class="item">
+
+            
+
+        <div class="image-row"><img src="amazon item pic/adults-plain-cotton-tshirt-2-pack-teal.jpg" class="image"></div> 
+
+        <div>
+          <div class="text"> 
+
+          <p class="name">
+            Adults Plain Cotton T-Shirt Teal - 2 Pack
+          </p>
+          <img class="rating" src="amazon rating\rating-45.png">
+          <p class="review-number">87</p>
+          <p class="price">£17.50</p>
+          <select class="quantity select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select>
+
+          
+
+          <div class="size">
+
+            <p class="size-text">Size</p>
+
+            <button class="s-js1 button-selection" onclick="selectSize1('s-js1')">S</button>
+            <button class="m-js1 button-selection" onclick="selectSize1('m-js1')">M</button>
+            <button class="l-js1 button-selection" onclick="selectSize1('l-js1')">L</button>
+          </div>
+
+          <div class="color">
+
+          </div>
+          
+          <div class="add-to-cart">
+            <button class="add-to-cart-button">Add To Cart</button>
+          </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+        <div class="item">
+
+            
+
+        <div class="image-row"><img src="amazon item pic/round-sunglasses-black.jpg" class="image"></div> 
+
+        <div>
+          <div class="text"> 
+
+          <p class="name">
+            Black and Silver Sunglasses for Adults
+          </p>
+          <img class="rating" src="amazon rating\rating-45.png">
+          <p class="review-number">47</p>
+          <p class="price">£8.99</p>
+          <select class="quantity select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select>
+
+          <div class="color">
+
+          </div>
+          
+          <div class="add-to-cart">
+            <button class="add-to-cart-button">Add To Cart</button>
+          </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+        <div class="item left-edge">
+
+            
+
+          <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+          <div>
+            <div class="text"> 
+
+            <p class="name">
+              Black and Gray Athletic Cotton Socks - 6 Pairs
+            </p>
+            <img class="rating" src="amazon rating\rating-45.png">
+            <p class="review-number">87</p>
+            <p class="price">£8.99</p>
+            <select class="quantity select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+
+            
+
+            <div class="size">
+
+              <p class="size-text">Size</p>
+
+              <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+              <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+              <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+            </div>
+
+            <div class="color">
+
+            </div>
+            
+            <div class="add-to-cart">
+              <button class="add-to-cart-button">Add To Cart</button>
+            </div>
+
+            </div>
+
+        </div>
+
+      </div>
+
+        <div class="item">
+
+            
+
+          <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+          <div>
+            <div class="text"> 
+
+            <p class="name">
+              Black and Gray Athletic Cotton Socks - 6 Pairs
+            </p>
+            <img class="rating" src="amazon rating\rating-45.png">
+            <p class="review-number">87</p>
+            <p class="price">£8.99</p>
+            <select class="quantity select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+
+            
+
+            <div class="size">
+
+              <p class="size-text">Size</p>
+
+              <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+              <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+              <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+            </div>
+
+            <div class="color">
+
+            </div>
+            
+            <div class="add-to-cart">
+              <button class="add-to-cart-button">Add To Cart</button>
+            </div>
+
+            </div>
+
+        </div>
+
+      </div>
+
+        <div class="item">
+
+              
+
+          <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+          <div>
+            <div class="text"> 
+
+            <p class="name">
+              Black and Gray Athletic Cotton Socks - 6 Pairs
+            </p>
+            <img class="rating" src="amazon rating\rating-45.png">
+            <p class="review-number">87</p>
+            <p class="price">£8.99</p>
+            <select class="quantity select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+
+            
+
+            <div class="size">
+
+              <p class="size-text">Size</p>
+
+              <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+              <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+              <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+            </div>
+
+            <div class="color">
+
+            </div>
+            
+            <div class="add-to-cart">
+              <button class="add-to-cart-button">Add To Cart</button>
+            </div>
+
+            </div>
+
+        </div>
+
+      </div>
+
+        <div class="item">
+
+                
+
+          <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+          <div>
+            <div class="text"> 
+
+            <p class="name">
+              Black and Gray Athletic Cotton Socks - 6 Pairs
+            </p>
+            <img class="rating" src="amazon rating\rating-45.png">
+            <p class="review-number">87</p>
+            <p class="price">£8.99</p>
+            <select class="quantity select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+
+            
+
+            <div class="size">
+
+              <p class="size-text">Size</p>
+
+              <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+              <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+              <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+            </div>
+
+            <div class="color">
+
+            </div>
+            
+            <div class="add-to-cart">
+              <button class="add-to-cart-button">Add To Cart</button>
+            </div>
+
+            </div>
+
+        </div>
+
+      </div>
+
+        <div class="item">
+
+            
+
+        <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+        <div>
+          <div class="text"> 
+
+          <p class="name">
+            Black and Gray Athletic Cotton Socks - 6 Pairs
+          </p>
+          <img class="rating" src="amazon rating\rating-45.png">
+          <p class="review-number">87</p>
+          <p class="price">£8.99</p>
+          <select class="quantity select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select>
+
+          
+
+          <div class="size">
+
+            <p class="size-text">Size</p>
+
+            <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+            <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+            <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+          </div>
+
+          <div class="color">
+
+          </div>
+          
+          <div class="add-to-cart">
+            <button class="add-to-cart-button">Add To Cart</button>
+          </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+        <div class="item">
+
+            
+
+        <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+        <div>
+          <div class="text"> 
+
+          <p class="name">
+            Black and Gray Athletic Cotton Socks - 6 Pairs
+          </p>
+          <img class="rating" src="amazon rating\rating-45.png">
+          <p class="review-number">87</p>
+          <p class="price">£8.99</p>
+          <select class="quantity select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select>
+
+          
+
+          <div class="size">
+
+            <p class="size-text">Size</p>
+
+            <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+            <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+            <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+          </div>
+
+          <div class="color">
+
+          </div>
+          
+          <div class="add-to-cart">
+            <button class="add-to-cart-button">Add To Cart</button>
+          </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+        <div class="item">
+
+              
+
+          <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+          <div>
+            <div class="text"> 
+
+            <p class="name">
+              Black and Gray Athletic Cotton Socks - 6 Pairs
+            </p>
+            <img class="rating" src="amazon rating\rating-45.png">
+            <p class="review-number">87</p>
+            <p class="price">£8.99</p>
+            <select class="quantity select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+
+            
+
+            <div class="size">
+
+              <p class="size-text">Size</p>
+
+              <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+              <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+              <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+            </div>
+
+            <div class="color">
+
+            </div>
+            
+            <div class="add-to-cart">
+              <button class="add-to-cart-button">Add To Cart</button>
+            </div>
+
+            </div>
+
+          </div>
+
+      </div>
+
+        <div class="item left-edge">
+
+              
+
+          <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+          <div>
+            <div class="text"> 
+
+            <p class="name">
+              Black and Gray Athletic Cotton Socks - 6 Pairs
+            </p>
+            <img class="rating" src="amazon rating\rating-45.png">
+            <p class="review-number">87</p>
+            <p class="price">£8.99</p>
+            <select class="quantity select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+
+            
+
+            <div class="size">
+
+              <p class="size-text">Size</p>
+
+              <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+              <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+              <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+            </div>
+
+            <div class="color">
+
+            </div>
+            
+            <div class="add-to-cart">
+              <button class="add-to-cart-button">Add To Cart</button>
+            </div>
+
+            </div>
+
+        </div>
+
+      </div>
+
+        <div class="item">
+
+            
+
+          <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+          <div>
+            <div class="text"> 
+
+            <p class="name">
+              Black and Gray Athletic Cotton Socks - 6 Pairs
+            </p>
+            <img class="rating" src="amazon rating\rating-45.png">
+            <p class="review-number">87</p>
+            <p class="price">£8.99</p>
+            <select class="quantity select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+
+            
+
+            <div class="size">
+
+              <p class="size-text">Size</p>
+
+              <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+              <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+              <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+            </div>
+
+            <div class="color">
+
+            </div>
+            
+            <div class="add-to-cart">
+              <button class="add-to-cart-button">Add To Cart</button>
+            </div>
+
+            </div>
+
+        </div>
+
+      </div>
+
+        <div class="item">
+
+              
+
+          <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+          <div>
+            <div class="text"> 
+
+            <p class="name">
+              Black and Gray Athletic Cotton Socks - 6 Pairs
+            </p>
+            <img class="rating" src="amazon rating\rating-45.png">
+            <p class="review-number">87</p>
+            <p class="price">£8.99</p>
+            <select class="quantity select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+
+            
+
+            <div class="size">
+
+              <p class="size-text">Size</p>
+
+              <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+              <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+              <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+            </div>
+
+            <div class="color">
+
+            </div>
+            
+            <div class="add-to-cart">
+              <button class="add-to-cart-button">Add To Cart</button>
+            </div>
+
+            </div>
+
+        </div>
+
+      </div>
+
+        <div class="item">
+
+                
+
+          <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+          <div>
+            <div class="text"> 
+
+            <p class="name">
+              Black and Gray Athletic Cotton Socks - 6 Pairs
+            </p>
+            <img class="rating" src="amazon rating\rating-45.png">
+            <p class="review-number">87</p>
+            <p class="price">£8.99</p>
+            <select class="quantity select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+
+            
+
+            <div class="size">
+
+              <p class="size-text">Size</p>
+
+              <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+              <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+              <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+            </div>
+
+            <div class="color">
+
+            </div>
+            
+            <div class="add-to-cart">
+              <button class="add-to-cart-button">Add To Cart</button>
+            </div>
+
+            </div>
+
+        </div>
+
+      </div>
+
+        <div class="item">
+
+            
+
+        <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+        <div>
+          <div class="text"> 
+
+          <p class="name">
+            Black and Gray Athletic Cotton Socks - 6 Pairs
+          </p>
+          <img class="rating" src="amazon rating\rating-45.png">
+          <p class="review-number">87</p>
+          <p class="price">£8.99</p>
+          <select class="quantity select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select>
+
+          
+
+          <div class="size">
+
+            <p class="size-text">Size</p>
+
+            <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+            <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+            <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+          </div>
+
+          <div class="color">
+
+          </div>
+          
+          <div class="add-to-cart">
+            <button class="add-to-cart-button">Add To Cart</button>
+          </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+        <div class="item">
+
+            
+
+        <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+        <div>
+          <div class="text"> 
+
+          <p class="name">
+            Black and Gray Athletic Cotton Socks - 6 Pairs
+          </p>
+          <img class="rating" src="amazon rating\rating-45.png">
+          <p class="review-number">87</p>
+          <p class="price">£8.99</p>
+          <select class="quantity select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select>
+
+          
+
+          <div class="size">
+
+            <p class="size-text">Size</p>
+
+            <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+            <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+            <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+          </div>
+
+          <div class="color">
+
+          </div>
+          
+          <div class="add-to-cart">
+            <button class="add-to-cart-button">Add To Cart</button>
+          </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+        <div class="item">
+
+              
+
+          <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+          <div>
+            <div class="text"> 
+
+            <p class="name">
+              Black and Gray Athletic Cotton Socks - 6 Pairs
+            </p>
+            <img class="rating" src="amazon rating\rating-45.png">
+            <p class="review-number">87</p>
+            <p class="price">£8.99</p>
+            <select class="quantity select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+
+            
+
+            <div class="size">
+
+              <p class="size-text">Size</p>
+
+              <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+              <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+              <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+            </div>
+
+            <div class="color">
+
+            </div>
+            
+            <div class="add-to-cart">
+              <button class="add-to-cart-button">Add To Cart</button>
+            </div>
+
+            </div>
+
+          </div>
+
+      </div>
+
+        <div class="item left-edge bottom">
+
+                
+
+          <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+          <div>
+            <div class="text"> 
+
+            <p class="name">
+              Black and Gray Athletic Cotton Socks - 6 Pairs
+            </p>
+            <img class="rating" src="amazon rating\rating-45.png">
+            <p class="review-number">87</p>
+            <p class="price">£8.99</p>
+            <select class="quantity select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+
+            
+
+            <div class="size">
+
+              <p class="size-text">Size</p>
+
+              <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+              <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+              <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+            </div>
+
+            <div class="color">
+
+            </div>
+            
+            <div class="add-to-cart">
+              <button class="add-to-cart-button">Add To Cart</button>
+            </div>
+
+            </div>
+
+        </div>
+
+      </div>
+
+        <div class="item bottom">
+
+            
+
+          <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+          <div>
+            <div class="text"> 
+
+            <p class="name">
+              Black and Gray Athletic Cotton Socks - 6 Pairs
+            </p>
+            <img class="rating" src="amazon rating\rating-45.png">
+            <p class="review-number">87</p>
+            <p class="price">£8.99</p>
+            <select class="quantity select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+
+            
+
+            <div class="size">
+
+              <p class="size-text">Size</p>
+
+              <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+              <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+              <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+            </div>
+
+            <div class="color">
+
+            </div>
+            
+            <div class="add-to-cart">
+              <button class="add-to-cart-button">Add To Cart</button>
+            </div>
+
+            </div>
+
+        </div>
+
+      </div>
+
+        <div class="item bottom">
+
+              
+
+          <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+          <div>
+            <div class="text"> 
+
+            <p class="name">
+              Black and Gray Athletic Cotton Socks - 6 Pairs
+            </p>
+            <img class="rating" src="amazon rating\rating-45.png">
+            <p class="review-number">87</p>
+            <p class="price">£8.99</p>
+            <select class="quantity select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+
+            
+
+            <div class="size">
+
+              <p class="size-text">Size</p>
+
+              <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+              <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+              <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+            </div>
+
+            <div class="color">
+
+            </div>
+            
+            <div class="add-to-cart">
+              <button class="add-to-cart-button">Add To Cart</button>
+            </div>
+
+            </div>
+
+        </div>
+
+      </div>
+
+        <div class="item bottom">
+
+                
+
+          <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+          <div>
+            <div class="text"> 
+
+            <p class="name">
+              Black and Gray Athletic Cotton Socks - 6 Pairs
+            </p>
+            <img class="rating" src="amazon rating\rating-45.png">
+            <p class="review-number">87</p>
+            <p class="price">£8.99</p>
+            <select class="quantity select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+
+            
+
+            <div class="size">
+
+              <p class="size-text">Size</p>
+
+              <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+              <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+              <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+            </div>
+
+            <div class="color">
+
+            </div>
+            
+            <div class="add-to-cart">
+              <button class="add-to-cart-button">Add To Cart</button>
+            </div>
+
+            </div>
+
+        </div>
+
+      </div>
+
+        <div class="item bottom">
+
+            
+
+        <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+        <div>
+          <div class="text"> 
+
+          <p class="name">
+            Black and Gray Athletic Cotton Socks - 6 Pairs
+          </p>
+          <img class="rating" src="amazon rating\rating-45.png">
+          <p class="review-number">87</p>
+          <p class="price">£8.99</p>
+          <select class="quantity select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select>
+
+          
+
+          <div class="size">
+
+            <p class="size-text">Size</p>
+
+            <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+            <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+            <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+          </div>
+
+          <div class="color">
+
+          </div>
+          
+          <div class="add-to-cart">
+            <button class="add-to-cart-button">Add To Cart</button>
+          </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+        <div class="item bottom">
+
+            
+
+        <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+        <div>
+          <div class="text"> 
+
+          <p class="name">
+            Black and Gray Athletic Cotton Socks - 6 Pairs
+          </p>
+          <img class="rating" src="amazon rating\rating-45.png">
+          <p class="review-number">87</p>
+          <p class="price">£8.99</p>
+          <select class="quantity select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select>
+
+          
+
+          <div class="size">
+
+            <p class="size-text">Size</p>
+
+            <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+            <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+            <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+          </div>
+
+          <div class="color">
+
+          </div>
+          
+          <div class="add-to-cart">
+            <button class="add-to-cart-button">Add To Cart</button>
+          </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+        <div class="item bottom">
+
+            
+
+        <div class="image-row"><img src="amazon item pic\athletic-cotton-socks-6-pairs.jpg" class="image"></div> 
+
+        <div>
+          <div class="text"> 
+
+          <p class="name">
+            Black and Gray Athletic Cotton Socks - 6 Pairs
+          </p>
+          <img class="rating" src="amazon rating\rating-45.png">
+          <p class="review-number">87</p>
+          <p class="price">£8.99</p>
+          <select class="quantity select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select>
+
+          
+
+          <div class="size">
+
+            <p class="size-text">Size</p>
+
+            <button class="s-js button-selection" onclick="selectSize('s')">S</button>
+            <button class="m-js button-selection" onclick="selectSize('m')">M</button>
+            <button class="l-js button-selection" onclick="selectSize('l')">L</button>
+          </div>
+
+          <div class="color">
+
+          </div>
+          
+          <div class="add-to-cart">
+            <button class="add-to-cart-button">Add To Cart</button>
+          </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      </div>
+
+    </div>
+
+
+    <script>
+
+      function selectShoeSize(item) {
+        if (item == "6") {
+          borderLight("seven-js")
+          borderLight("eight-js")
+          borderLight("nine-js")
+          borderLight("ten-js")
+          borderDark("six-js")
+        }
+
+        if (item == "7") {
+          borderDark("seven-js")
+          borderLight("eight-js")
+          borderLight("nine-js")
+          borderLight("ten-js")
+          borderLight("six-js")
+        }
+
+        if (item == "8") {
+          borderLight("seven-js")
+          borderDark("eight-js")
+          borderLight("nine-js")
+          borderLight("ten-js")
+          borderLight("six-js")
+        }
+
+        if (item == "9") {
+          borderLight("seven-js")
+          borderLight("eight-js")
+          borderDark("nine-js")
+          borderLight("ten-js")
+          borderLight("six-js")
+        }
+
+        if (item == "10") {
+          borderLight("seven-js")
+          borderLight("eight-js")
+          borderLight("nine-js")
+          borderDark("ten-js")
+          borderLight("six-js")
+        }
+      }
+
+      function selectSize(item) {
+
+        borderDark(item)
+
+        if (item == "s-js") {
+          borderLight("m-js")
+          borderLight("l-js")
+        }
+
+        if (item == "m-js") {
+          borderLight("s-js")
+          borderLight("l-js")
+        }
+
+        if (item == "l-js") {
+          borderLight("s-js")
+          borderLight("m-js")
+        }
+        }
+
+      function selectSize1(item) {
+
+       borderDark(item)
+
+       if (item == "s-js1") {
+         borderLight("m-js1")
+         borderLight("l-js1")
+       }
+
+       if (item == "m-js1") {
+         borderLight("s-js1")
+         borderLight("l-js1")
+       }
+      
+       if (item == "l-js1") {
+        borderLight("s-js1")
+         borderLight("m-js1")
+        }
+}
+
+        function selectColour(item) {
+
+          if (item == "t-js") {
+            borderDark(item)
+            borderLight("y-js")
+            document.querySelector(".image-hoodie-js").src = "amazon item pic/plain-hooded-fleece-sweatshirt-teal.jpg"
+          }
+
+          if (item == "y-js") {
+            borderDark(item)
+            borderLight("t-js")
+            document.querySelector(".image-hoodie-js").src = "amazon item pic/plain-hooded-fleece-sweatshirt-yellow.jpg"
+          }
+        }
+
+        function borderLight(item) {
+          document.querySelector(`.${item}`).style.borderColor = "lightgrey"
+          document.querySelector(`.${item}`).style.borderWidth = "1px"
+        }
+
+        function borderDark(item) {
+          document.querySelector(`.${item}`).style.borderColor = "rgb(255, 191, 0)"
+          document.querySelector(`.${item}`).style.borderWidth = "2px"
+        }
+
+      
+
+    </script>
+
+  </body>
+</html>
